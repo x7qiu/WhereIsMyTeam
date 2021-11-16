@@ -1,11 +1,12 @@
 hooksecurefunc("CompactUnitFrame_UpdateName", function(frame)
 
--- remove icon 
+-- remove icon for non-party members
 if frame.icon and not UnitInParty(frame.unit) then
 	print("trying to remove icon")
 	frame.icon:SetTexture(nil)
 	frame.icon:ClearAllPoints()
 	frame.icon = nil
+	frame.healthBar.SetAlpha(1)
 end
 
 if not UnitIsPlayer(frame.displayedUnit) then return end
@@ -26,7 +27,9 @@ if not frame.icon then
 	frame.icon:SetTexCoord(unpack(t))
 	frame.icon:SetSize(64, 64)
 	frame.icon:SetPoint("CENTER", frame, "CENTER", 0, 0)
-	-- frame:SetAlpha(0) -- the whole thing is gone
+	
+	frame.healthBar:SetAlpha(0)
+	
 
 end
 
