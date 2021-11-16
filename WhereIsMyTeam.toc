@@ -1,0 +1,7 @@
+## Interface: 90105
+## Title: Where's My Team
+## Notes: Show class icon for party members
+## Author: Xie Q
+## Version: 0.1
+
+WhereIsMyTeam.lua
