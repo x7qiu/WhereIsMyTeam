@@ -21,11 +21,11 @@ if frame:GetName() then return end	-- skip CompactRaidFrame. party nameplate has
 		
 if not frame.icon then
 	frame.optionTable.displaySelectionHighlight = false	-- otherwise healthbar shows up
-	frame.icon = frame:CreateTexture(nil, "OVERLAY")
+	frame.icon = frame:CreateTexture(nil, "BACKGROUND")
 	local t = CLASS_ICON_TCOORDS[select(2, UnitClass(frame.unit))]
 	frame.icon:SetTexture("Interface\\GLUES\\CHARACTERCREATE\\UI-CHARACTERCREATE-CLASSES")
 	frame.icon:SetTexCoord(unpack(t))
-	frame.icon:SetSize(64, 64)
+	frame.icon:SetSize(46, 46)
 	frame.icon:SetPoint("CENTER", frame, "CENTER", 0, 0)
 	
 	frame.healthBar:SetAlpha(0)
