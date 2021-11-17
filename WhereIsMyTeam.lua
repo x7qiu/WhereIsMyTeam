@@ -15,12 +15,14 @@ if ( GetNumGroupMembers() > 5) then return end
 
 if frame:IsForbidden() then return end
         
-if not UnitInParty(frame.unit) then return end 
+if not UnitInParty(frame.unit) then return end
 
-if frame:GetName() then return end	-- skip CompactRaidFrame. party nameplate has no name
-		
+if frame:GetName() then return end-- skip CompactRaidFrame. party nameplate has no name
+
+if C_NamePlate.GetNamePlateForUnit(frame.unit) == C_NamePlate.GetNamePlateForUnit("player") then return end -- skip own nameplate
+
 if not frame.icon then
-	frame.optionTable.displaySelectionHighlight = false	-- otherwise healthbar shows up
+	frame.optionTable.displaySelectionHighlight = false
 	frame.icon = frame:CreateTexture(nil, "BACKGROUND")
 	local t = CLASS_ICON_TCOORDS[select(2, UnitClass(frame.unit))]
 	frame.icon:SetTexture("Interface\\GLUES\\CHARACTERCREATE\\UI-CHARACTERCREATE-CLASSES")
